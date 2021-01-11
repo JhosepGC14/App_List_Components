@@ -1,4 +1,8 @@
+import 'package:app_list_components/src/pages/alert_page.dart';
 import 'package:flutter/material.dart';
+
+import 'package:app_list_components/src/providers/menu_provider.dart';
+import 'package:app_list_components/src/utils/icono_string_util.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -12,33 +16,54 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _lista() {
-    return ListView(
-      children: _crearListItems(),
+    // print(menuProvider.opciones);
+
+    // menuProvider.cargarData().then((options) {
+    //   print("_lista :v");
+    //   print(options);
+    // });
+
+    // return ListView(
+    //   children: _crearListItems(),
+    // );
+
+    return FutureBuilder(
+      future: menuProvider.cargarData(),
+      initialData: [],
+      builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
+        print("builder ");
+        print(snapshot.data);
+        return ListView(
+          children: _crearListItems(snapshot.data, context),
+        );
+      },
     );
   }
 
-  List<Widget> _crearListItems() {
-    return [
-      ListTile(
-        title: Text("Hola Mundo"),
-      ),
-      Divider(),
-      ListTile(
-        title: Text("Hola Mundo"),
-      ),
-      Divider(),
-      ListTile(
-        title: Text("Hola Mundo"),
-      ),
-      Divider(),
-      ListTile(
-        title: Text("Hola Mundo"),
-      ),
-      Divider(),
-      ListTile(
-        title: Text("Hola Mundo"),
-      ),
-      Divider(),
-    ];
+  List<Widget> _crearListItems(List<dynamic> data, BuildContext context) {
+    final List<Widget> opciones = [];
+
+    data.forEach((opt) {
+      final widgetTemp = ListTile(
+        title: Text(opt['texto']),
+        leading: getIcon(opt['icon']),
+        trailing: Icon(Icons.keyboard_arrow_right),
+        onTap: () {
+          //primera forma de una navegacion normal
+          final route = MaterialPageRoute(builder: (context) => AlertPage());
+          Navigator.push(context, route);
+        },
+      );
+      opciones
+        ..add(widgetTemp)
+        ..add(
+          Divider(
+            height: 1.00,
+            color: Colors.black,
+          ),
+        );
+    });
+
+    return opciones;
   }
 }
