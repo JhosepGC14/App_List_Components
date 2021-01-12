@@ -50,7 +50,7 @@ class HomePageTemp extends StatelessWidget {
       final tempWidget = ListTile(
         title: Text(opt),
       );
-      print(opt);
+    
       //primera forma
       // lista.add(tempWidget);
       // lista.add(Divider(
