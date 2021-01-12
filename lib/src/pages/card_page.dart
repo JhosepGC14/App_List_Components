@@ -12,9 +12,60 @@ class CardPage extends StatelessWidget {
         children: [
           _cardTipoOne(),
           SizedBox(
-            height: 30.0,
+            height: 20.0,
           ),
           _cardTipoTwo(),
+          SizedBox(
+            height: 20.0,
+          ),
+          _cardTipoOne(),
+          SizedBox(
+            height: 20.0,
+          ),
+          _cardTipoTwo(),
+          SizedBox(
+            height: 20.0,
+          ),
+          _cardTipoOne(),
+          SizedBox(
+            height: 20.0,
+          ),
+          _cardTipoTwo(),
+          SizedBox(
+            height: 20.0,
+          ),
+          _cardTipoOne(),
+          SizedBox(
+            height: 20.0,
+          ),
+          _cardTipoTwo(),
+          SizedBox(
+            height: 20.0,
+          ),
+          _cardTipoOne(),
+          SizedBox(
+            height: 20.0,
+          ),
+          _cardTipoTwo(),
+          SizedBox(
+            height: 20.0,
+          ),
+          _cardTipoOne(),
+          SizedBox(
+            height: 20.0,
+          ),
+          _cardTipoTwo(),
+          SizedBox(
+            height: 20.0,
+          ),
+          _cardTipoOne(),
+          SizedBox(
+            height: 20.0,
+          ),
+          _cardTipoTwo(),
+          SizedBox(
+            height: 20.0,
+          ),
         ],
       ),
     );
@@ -22,12 +73,14 @@ class CardPage extends StatelessWidget {
 
   Widget _cardTipoOne() {
     return Card(
+      elevation: 7.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0)),
       child: Column(
         children: [
           ListTile(
             title: Text("Soy el titulo de esta tarjeta"),
             subtitle: Text(
-                "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. "),
+                "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T.)"),
             leading: Icon(
               Icons.photo_album_outlined,
               color: Colors.blue,
@@ -39,10 +92,20 @@ class CardPage extends StatelessWidget {
               FlatButton(
                 onPressed: () {},
                 child: Text("Cancelar"),
+                color: Colors.blue,
+                textColor: Colors.white,
+              ),
+              SizedBox(
+                width: 10.0,
               ),
               FlatButton(
                 onPressed: () {},
                 child: Text("Aceptar"),
+                color: Colors.blue,
+                textColor: Colors.white,
+              ),
+              SizedBox(
+                width: 5.0,
               ),
             ],
           )
@@ -52,9 +115,43 @@ class CardPage extends StatelessWidget {
   }
 
   Widget _cardTipoTwo() {
-    return Card(
+    final card = Container(
+      // clipBehavior: Clip.antiAlias,
       child: Column(
-        children: [],
+        children: [
+          FadeInImage(
+            placeholder: AssetImage('assets/loading.gif'),
+            image: NetworkImage("https://wallpapercave.com/wp/wp2465923.jpg"),
+            fadeInDuration: Duration(milliseconds: 1500),
+            height: 300.00,
+            fit: BoxFit.cover,
+          ),
+          Container(
+            padding: EdgeInsets.all(10.0),
+            child: Text(
+              "Esto es una simple descripción para la card",
+              style: TextStyle(fontSize: 16.0, color: Colors.blueAccent),
+            ),
+          ),
+        ],
+      ),
+    );
+
+    return Container(
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20.0),
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+              color: Colors.black45,
+              blurRadius: 15.0,
+              spreadRadius: 2.0,
+              offset: Offset(2.0, 10.0),
+            ),
+          ]),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20.0),
+        child: card,
       ),
     );
   }
