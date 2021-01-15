@@ -7,7 +7,6 @@ class AvatarPage extends StatelessWidget {
       appBar: AppBar(
         elevation: 10.0,
         // leading: Icon(Icons.keyboard_arrow_left),
-
         iconTheme: IconThemeData(
           color: Colors.black,
         ),
