@@ -5,13 +5,47 @@ class AvatarPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Avatar Page"),
+        elevation: 10.0,
+        // leading: Icon(Icons.keyboard_arrow_left),
+
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: Text(
+          "Avatar Page",
+          style: TextStyle(color: Colors.black),
+        ),
+        actions: [
+          Container(
+            padding: EdgeInsets.all(5.0),
+            child: CircleAvatar(
+              backgroundImage: NetworkImage(
+                  "https://www.geekmi.news/__export/1605198940916/sites/debate/img/2020/11/12/stan_leex_su_legado_a_dos_axos_de_su_muerte.jpg_242310155.jpg"),
+              radius: 20.0,
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(right: 10.0, left: 10.0),
+            child: CircleAvatar(
+              backgroundColor: Colors.green,
+              child: Text("SL"),
+            ),
+          )
+        ],
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add_location),
-        onPressed: () {
-          Navigator.pop(context);
-        },
+      body: Container(
+        color: Colors.blue,
+        child: Center(
+          child: FadeInImage(
+            placeholder: AssetImage("assets/loading.gif"),
+            image: NetworkImage(
+                "https://www.geekmi.news/__export/1605198940916/sites/debate/img/2020/11/12/stan_leex_su_legado_a_dos_axos_de_su_muerte.jpg_242310155.jpg"),
+            height: 300.0,
+            fit: BoxFit.cover,
+          ),
+        ),
       ),
     );
   }

@@ -64,7 +64,6 @@ class HomePage extends StatelessWidget {
         ..add(
           Divider(
             height: 1.00,
-            color: Colors.black,
           ),
         );
     });
