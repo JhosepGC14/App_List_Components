@@ -3,6 +3,13 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class AlertPage extends StatelessWidget {
+  final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
+    padding: EdgeInsets.only(right: 30, left: 30, top: 15, bottom: 15),
+    textStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+    shape: StadiumBorder(),
+    elevation: 2.0,
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,18 +18,15 @@ class AlertPage extends StatelessWidget {
       ),
       body: Center(
         child: ButtonTheme(
-          minWidth: 200.00,
+          minWidth: 300.00,
           height: 50.0,
-          child: RaisedButton(
-            shape: StadiumBorder(),
-            textColor: Colors.white,
-            elevation: 2.0,
+          child: ElevatedButton(
+            style: raisedButtonStyle,
             onPressed: () => _showAlert(context),
             child: Text(
               "Mostar Alerta",
               style: TextStyle(fontSize: 18.0),
             ),
-            color: Colors.blue,
           ),
         ),
       ),

@@ -20,6 +20,11 @@
             "ruta": "pageNotFound",
             "icon" : "lock",
             "texto": "Pagina No Encontrada"
+        },
+        {
+            "ruta": "inputs",
+            "icon" : "inputs",
+            "texto": "Inputs"
         }
     ]
 }
