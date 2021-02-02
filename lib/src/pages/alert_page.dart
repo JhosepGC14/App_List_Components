@@ -59,11 +59,11 @@ class AlertPage extends StatelessWidget {
             ],
           ),
           actions: [
-            FlatButton(
+            ElevatedButton(
               onPressed: () => Navigator.of(context).pop(),
               child: Text("Aceptar"),
             ),
-            FlatButton(
+            TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },

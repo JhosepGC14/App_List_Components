@@ -12,6 +12,10 @@ class _InputsPageState extends State<InputsPage> {
   String _nombre = "";
   String _email = "";
   String _password = "";
+  String _fecha = "";
+
+  TextEditingController _inputFieldDateTimeController =
+      new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +37,8 @@ class _InputsPageState extends State<InputsPage> {
           _crearPassword(),
           Divider(),
           _showPassword(),
+          Divider(),
+          _crearFecha(context),
         ],
       ),
     );
@@ -67,7 +73,7 @@ class _InputsPageState extends State<InputsPage> {
     );
   }
 
-//EMAIL
+  //EMAIL
   _crearEmail() {
     return TextField(
       keyboardType: TextInputType.emailAddress,
@@ -93,7 +99,7 @@ class _InputsPageState extends State<InputsPage> {
     );
   }
 
-//PASSWORD
+  //PASSWORD
   _crearPassword() {
     return TextField(
       obscureText: true,
@@ -117,5 +123,42 @@ class _InputsPageState extends State<InputsPage> {
     return ListTile(
       title: Text("Tu Password es : $_password"),
     );
+  }
+
+  Widget _crearFecha(BuildContext context) {
+    return TextField(
+      controller: _inputFieldDateTimeController,
+      enableInteractiveSelection: false,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        hintText: "DateTime Birthday",
+        labelText: "Fecha: ",
+        suffixIcon: Icon(Icons.perm_contact_calendar),
+        icon: Icon(Icons.calendar_today),
+      ),
+      onTap: () {
+        FocusScope.of(context).requestFocus(new FocusNode());
+        _selectDate(context);
+      },
+    );
+  }
+
+  _selectDate(BuildContext context) async {
+    DateTime picked = await showDatePicker(
+      context: context,
+      initialDate: new DateTime.now(),
+      firstDate: new DateTime(2018),
+      lastDate: new DateTime(2022),
+      locale: Locale("es", "ES"),
+    );
+
+    if (picked != null) {
+      setState(() {
+        _fecha = picked.toString();
+        _inputFieldDateTimeController.text = _fecha;
+      });
+    }
   }
 }
