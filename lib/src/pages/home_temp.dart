@@ -44,7 +44,7 @@ class HomePageTemp extends StatelessWidget {
   //pimera forma de iterar datos de una lista -
   //forma larga
   List<Widget> _crearItems() {
-    List<Widget> lista = new List<Widget>();
+    List<Widget> lista = [];
 
     for (String opt in opciones) {
       final tempWidget = ListTile(

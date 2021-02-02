@@ -72,6 +72,10 @@ class CardPage extends StatelessWidget {
   }
 
   Widget _cardTipoOne() {
+    final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
+      onPrimary: Colors.blue,
+    );
+
     return Card(
       elevation: 7.0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0)),
@@ -89,20 +93,23 @@ class CardPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              FlatButton(
+              ElevatedButton(
                 onPressed: () {},
-                child: Text("Cancelar"),
-                color: Colors.blue,
-                textColor: Colors.white,
+                child: Text(
+                  "Cancelar",
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
               SizedBox(
                 width: 10.0,
               ),
-              FlatButton(
+              ElevatedButton(
                 onPressed: () {},
-                child: Text("Aceptar"),
-                color: Colors.blue,
-                textColor: Colors.white,
+                child: Text(
+                  "Aceptar",
+                  style: TextStyle(color: Colors.white),
+                ),
+                style: raisedButtonStyle,
               ),
               SizedBox(
                 width: 5.0,

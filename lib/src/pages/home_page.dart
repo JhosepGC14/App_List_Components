@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 //imports widgets
-import 'package:app_list_components/src/pages/alert_page.dart';
+// import 'package:app_list_components/src/pages/alert_page.dart';
 import 'package:app_list_components/src/providers/menu_provider.dart';
 import 'package:app_list_components/src/utils/icono_string_util.dart';
 
